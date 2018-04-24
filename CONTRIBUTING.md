@@ -1,11 +1,9 @@
 ## Contributing
 
-[fork]: https://github.com/github/fetch/fork
-[pr]: https://github.com/github/fetch/compare
+[fork]: https://github.com/thisdot/yetch/fork
+[pr]: https://github.com/thisdot/yetch/compare
 
-Hi there! We're thrilled that you'd liske to contribute to this project. Your help is essential for keeping it great.
-
-Contributions to this project are [released](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license) to the public under the [project's open source license](LICENSE).
+Hi there! We're thrilled that you'd like to contribute to this project. Your help is essential for keeping it great.
 
 ## Submitting a pull request
 

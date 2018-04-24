@@ -1,12 +1,11 @@
-# window.fetch polyfill
+# Yet-another-fetch polyfill that adds AbortController support.
 
 The `fetch()` function is a Promise-based mechanism for programmatically making
 web requests in the browser. This project is a polyfill that implements a subset
 of the standard [Fetch specification][], enough to make `fetch` a viable
 replacement for most uses of XMLHttpRequest in traditional web applications.
 
-This project adheres to the [Open Code of Conduct][]. By participating, you are
-expected to uphold this code.
+This project is a fork of GitHub's [whatwg-fetch](https://github.com/github/fetch) that adds support for automatically polyfilling `window.fetch` so that it supports [aborting requests with an AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort).
 
 ## Table of Contents
 
@@ -59,11 +58,9 @@ expected to uphold this code.
 
 ## Installation
 
-* `npm install whatwg-fetch --save`; or
+* `npm install yetch --save`; or
 
-* `bower install fetch`; or
-
-* `yarn add whatwg-fetch`.
+* `yarn add yetch`.
 
 You will also need a Promise polyfill for [older browsers](http://caniuse.com/#feat=promises).
 We recommend [taylorhakes/promise-polyfill](https://github.com/taylorhakes/promise-polyfill)
@@ -73,19 +70,19 @@ For use with webpack, add this package in the `entry` configuration option
 before your application entry point:
 
 ```javascript
-entry: ['whatwg-fetch', ...]
+entry: ['yetch', ...]
 ```
 
 For Babel and ES2015+, make sure to import the file:
 
 ```javascript
-import 'whatwg-fetch'
+import 'yetch';
 ```
 
 ## Usage
 
 For a more comprehensive API reference that this polyfill supports, refer to
-https://github.github.io/fetch/.
+https://thisdot.github.io/yetch/.
 
 ### HTML
 
@@ -299,10 +296,7 @@ controller.abort();
 - Internet Explorer 10+
 
 Note: modern browsers such as Chrome, Firefox, Microsoft Edge, and Safari contain native
-implementations of `window.fetch`, therefore the code from this polyfill doesn't
-have any effect on those browsers. If you believe you've encountered an error
-with how `window.fetch` is implemented in any of these browsers, you should file
-an issue with that browser vendor instead of this project.
+implementations of `window.fetch` and the latest versions even support `AbortController`. However, as a relatively new feature some of your users may have a version of these browsers that has support for `window.fetch` but does not have support for `AbortController`. In those cases the polyfilled version of `fetch` will be used _instead_ of the native one. If you believe you've encountered an error with how `window.fetch` is implemented in any of these browsers, you should file an issue with that browser vendor instead of this project.
 
 
   [fetch specification]: https://fetch.spec.whatwg.org
@@ -312,3 +306,9 @@ an issue with that browser vendor instead of this project.
   [csrf]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet
     "Cross-site request forgery"
   [forbidden header name]: https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name
+
+## Credit
+
+As a fork, a majority of the work was done by GitHub and the community in [whatwg-fetch](https://github.com/github/fetch).
+
+:shipit:

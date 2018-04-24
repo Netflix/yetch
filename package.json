@@ -1,9 +1,9 @@
 {
-  "name": "whatwg-fetch",
-  "description": "A window.fetch polyfill.",
+  "name": "yetch",
+  "description": "Yet-another-fetch polyfill. window.fetch that supports aborting via AbortController",
   "version": "2.0.4",
   "main": "src/index.js",
-  "repository": "github/fetch",
+  "repository": "https://github.com/thisdot/yetch",
   "license": "MIT",
   "devDependencies": {
     "abortcontroller-polyfill": "1.1.2",
