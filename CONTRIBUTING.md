@@ -1,7 +1,7 @@
 ## Contributing
 
-[fork]: https://github.com/thisdot/yetch/fork
-[pr]: https://github.com/thisdot/yetch/compare
+[fork]: https://github.com/Netflix/yetch/fork
+[pr]: https://github.com/Netflix/yetch/compare
 
 Hi there! We're thrilled that you'd like to contribute to this project. Your help is essential for keeping it great.
 

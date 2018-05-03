@@ -84,7 +84,7 @@ import { fetch, Headers, Request, Response } from 'yetch';
 ```
 
 For a more comprehensive API reference that this polyfill supports, refer to
-https://thisdot.github.io/yetch/.
+https://Netflix.github.io/yetch/.
 
 ### HTML
 
