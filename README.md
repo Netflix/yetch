@@ -1,11 +1,11 @@
 # Yet-another-fetch polyfill that adds AbortController support.
 
 The `fetch()` function is a Promise-based mechanism for programmatically making
-web requests in the browser. This project is a polyfill that implements a subset
+web requests in the browser. This project provides a polyfill that implements a subset
 of the standard [Fetch specification][], enough to make `fetch` a viable
 replacement for most uses of XMLHttpRequest in traditional web applications.
 
-This project is a fork of GitHub's [whatwg-fetch](https://github.com/github/fetch) that adds support for automatically polyfilling `window.fetch` so that it supports [aborting requests with an AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort).
+The default CommonJS import path does not assign or polyfill `window.fetch`. Use `import 'yetch/polyfill'` (see [Usage](#usage)).
 
 ## Table of Contents
 
@@ -58,28 +58,30 @@ This project is a fork of GitHub's [whatwg-fetch](https://github.com/github/fetc
 
 ## Installation
 
+Your will need to have **AbortController**, **AbortSignal**, and **Promise** polyfilled first, before you load yetch. We recommend [taylorhakes/promise-polyfill](https://github.com/taylorhakes/promise-polyfill) and [mo/abortcontroller-polyfill](https://github.com/mo/abortcontroller-polyfill/).
+
 * `npm install yetch --save`; or
 
 * `yarn add yetch`.
 
-You will also need a Promise polyfill for [older browsers](http://caniuse.com/#feat=promises).
-We recommend [taylorhakes/promise-polyfill](https://github.com/taylorhakes/promise-polyfill)
-for its small size and Promises/A+ compatibility.
-
-For use with webpack, add this package in the `entry` configuration option
-before your application entry point:
-
-```javascript
-entry: ['yetch', ...]
-```
-
-For Babel and ES2015+, make sure to import the file:
-
-```javascript
-import 'yetch';
-```
-
 ## Usage
+
+> yetch doesn't come with polyfills for AbortController, AbortSignal, or Promise, so be sure to include them **first**!
+
+If you'd like yetch to polyfill the global `window.fetch`, you should import the `yetch/polyfill` file; it doesn't export anything, it just polyfills the environment if needed.
+
+```javascript
+// ES6+
+import 'yetch/polyfill';
+// CJS
+require('yetch/polyfill');
+```
+
+Otherwise, if you'd like to just use yetch _without_ actually polyfilling the global variables, you can import it directly:
+
+```javascript
+import { fetch, Headers, Request, Response } from 'yetch';
+```
 
 For a more comprehensive API reference that this polyfill supports, refer to
 https://thisdot.github.io/yetch/.
@@ -162,7 +164,7 @@ fetch('/avatars', {
 
 ### Caveats
 
-The `fetch` specification differs from `jQuery.ajax()` in mainly two ways that
+The actual `fetch` specification differs from `jQuery.ajax()` in mainly two ways that
 bear keeping in mind:
 
 * The Promise returned from `fetch()` **won't reject on HTTP error status**
@@ -308,6 +310,8 @@ implementations of `window.fetch` and the latest versions even support `AbortCon
   [forbidden header name]: https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name
 
 ## Credit
+
+This project started as a fork of GitHub's [whatwg-fetch](https://github.com/github/fetch), adding support for automatically polyfilling `window.fetch` so that it supports [aborting requests with an AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort). The usage approaches are also difference--yetch is a CJS module by default and does not replace `window.fetch` with a polyfill unless you `import 'yetch/polyfill'`.
 
 As a fork, a majority of the work was done by GitHub and the community in [whatwg-fetch](https://github.com/github/fetch).
 
