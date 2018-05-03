@@ -1,11 +1,14 @@
-test: node_modules/ lint
+test: node_modules/ lint build
 	./script/test
 
 lint: node_modules/
-	./node_modules/.bin/jshint *.js test/*.js
+	./node_modules/.bin/jshint src/**/*.js test/*.js
 
 node_modules/:
 	npm install
+
+build:
+	npm run build
 
 clean:
 	rm -rf ./bower_components ./node_modules

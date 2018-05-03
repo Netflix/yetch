@@ -2,7 +2,7 @@
   "name": "whatwg-fetch",
   "description": "A window.fetch polyfill.",
   "version": "2.0.4",
-  "main": "fetch.js",
+  "main": "src/index.js",
   "repository": "github/fetch",
   "license": "MIT",
   "devDependencies": {
@@ -12,13 +12,18 @@
     "mocha": "2.1.0",
     "mocha-phantomjs-core": "2.0.1",
     "promise-polyfill": "6.0.2",
-    "url-search-params": "0.6.1"
+    "url-search-params": "0.6.1",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2"
   },
   "files": [
     "LICENSE",
-    "fetch.js"
+    "polyfill.js",
+    "src",
+    "dist"
   ],
   "scripts": {
+    "build": "webpack",
     "test": "make"
   }
 }

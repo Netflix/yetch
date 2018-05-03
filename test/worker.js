@@ -7,7 +7,7 @@ self.assert = chai.assert
 importScripts('/node_modules/promise-polyfill/promise.js')
 importScripts('/node_modules/abortcontroller-polyfill/dist/abortcontroller.js')
 importScripts('/test/test.js')
-importScripts('/fetch.js')
+importScripts('/dist/yetch-polyfill.js');
 
 function title(test) {
   return test.fullTitle().replace(/#/g, '');
