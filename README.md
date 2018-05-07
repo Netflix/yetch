@@ -311,7 +311,7 @@ implementations of `window.fetch` and the latest versions even support `AbortCon
 
 ## Credit
 
-This project started as a fork of GitHub's [whatwg-fetch](https://github.com/github/fetch), adding support for automatically polyfilling `window.fetch` so that it supports [aborting requests with an AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort). The usage approaches are also difference--yetch is a CJS module by default and does not replace `window.fetch` with a polyfill unless you `import 'yetch/polyfill'`.
+This project started as a fork of GitHub's [whatwg-fetch](https://github.com/github/fetch), adding support for automatically polyfilling `window.fetch` so that it supports [aborting requests with an AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort). In additional yetch is a CJS module by default and does not replace `window.fetch` with a polyfill unless you `import 'yetch/polyfill'`.
 
 As a fork, a majority of the work was done by GitHub and the community in [whatwg-fetch](https://github.com/github/fetch).
 
