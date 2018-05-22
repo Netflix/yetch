@@ -10,6 +10,8 @@ describe('Common JS', function () {
     isFunction(Yetch.Headers)
     isFunction(Yetch.Request)
     isFunction(Yetch.Response)
+    isFunction(Yetch.AbortController)
+    isFunction(Yetch.AbortSignal)
   })
 
   it('should not polyfill by default', function() {
@@ -26,12 +28,16 @@ describe('Common JS', function () {
     equal(root.Headers, Yetch.Headers)
     equal(root.Request, Yetch.Request)
     equal(root.Response, Yetch.Response)
+    equal(root.AbortController, Yetch.AbortController)
+    equal(root.AbortSignal, Yetch.AbortSignal)
 
     // make sure that our mock didn't accidentally *actually* polyfill the node.js global
     equal(typeof fetch === 'undefined', true)
     equal(typeof Headers === 'undefined', true)
     equal(typeof Request === 'undefined', true)
     equal(typeof Response === 'undefined', true)
+    equal(typeof AbortController === 'undefined', true)
+    equal(typeof AbortSignal === 'undefined', true)
 
     rootModule.root = originalRoot
   });

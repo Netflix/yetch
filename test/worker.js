@@ -5,7 +5,6 @@ mocha.setup('tdd')
 self.assert = chai.assert
 
 importScripts('/node_modules/promise-polyfill/promise.js')
-importScripts('/node_modules/abortcontroller-polyfill/dist/abortcontroller.js')
 importScripts('/test/test.js')
 importScripts('/dist/yetch-polyfill.js');
 

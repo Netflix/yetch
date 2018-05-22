@@ -58,15 +58,17 @@ The default CommonJS import path does not assign or polyfill `window.fetch`. Use
 
 ## Installation
 
-Your will need to have **AbortController**, **AbortSignal**, and **Promise** polyfilled first, before you load yetch. We recommend [taylorhakes/promise-polyfill](https://github.com/taylorhakes/promise-polyfill) and [mo/abortcontroller-polyfill](https://github.com/mo/abortcontroller-polyfill/).
+> You will need to have **Promise** polyfilled first (if neccesary), before you load yetch. We recommend [taylorhakes/promise-polyfill](https://github.com/taylorhakes/promise-polyfill).
 
-* `npm install yetch --save`; or
-
-* `yarn add yetch`.
+```
+npm install yetch --save
+# or
+yarn add yetch
+```
 
 ## Usage
 
-> yetch doesn't come with polyfills for AbortController, AbortSignal, or Promise, so be sure to include them **first**!
+> yetch also polyfills AbortController, AbortSignal, and a few other related classes, but it does *not* polyfill Promise
 
 If you'd like yetch to polyfill the global `window.fetch`, you should import the `yetch/polyfill` file; it doesn't export anything, it just polyfills the environment if needed.
 
@@ -80,7 +82,19 @@ require('yetch/polyfill');
 Otherwise, if you'd like to just use yetch _without_ actually polyfilling the global variables, you can import it directly:
 
 ```javascript
-import { fetch, Headers, Request, Response } from 'yetch';
+import { fetch, AbortController } from 'yetch';
+
+const controller = new AbortController();
+
+fetch('/avatars', { signal: controller.signal })
+  .catch(function(ex) {
+    if (ex.name === 'AbortError') {
+      console.log('request aborted')
+    }
+  });
+
+// some time later...
+controller.abort();
 ```
 
 For a more comprehensive API reference that this polyfill supports, refer to
