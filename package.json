@@ -1,7 +1,7 @@
 {
   "name": "yetch",
   "description": "Yet-another-fetch polyfill. window.fetch that supports aborting via AbortController",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "src/index.js",
   "repository": "https://github.com/Netflix/yetch",
   "license": "MIT",
