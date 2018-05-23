@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = {
+module.exports = [{
   mode: 'production',
   entry: ['./src/index.js', './polyfill.js'],
   output: {
@@ -10,4 +10,14 @@ module.exports = {
     libraryTarget: 'umd',
     globalObject: 'this'
   }
-};
+}, {
+  mode: 'production',
+  entry: ['./src/index.js'],
+  output: {
+    filename: 'yetch-ponyfill.js',
+    path: path.resolve(__dirname, 'dist'),
+    library: 'Yetch',
+    libraryTarget: 'umd',
+    globalObject: 'this'
+  }
+}];
