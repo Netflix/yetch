@@ -1,5 +1,9 @@
 # Yet-another-fetch polyfill that adds AbortController support.
 
+> NOTE: While generally stable, this project is no longer actively maintained.
+>
+> We recommend folks switch to [github/fetch](https://github.com/github/fetch), if still needed, which should be generally painless since they both had the same goal and Yetch was originally a fork of that project.
+
 The `fetch()` function is a Promise-based mechanism for programmatically making
 web requests in the browser. This project provides a polyfill that implements a subset
 of the standard [Fetch specification][], enough to make `fetch` a viable
