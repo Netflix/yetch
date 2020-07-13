@@ -58,7 +58,7 @@ The default CommonJS import path does not assign or polyfill `window.fetch`. Use
 
 ## Installation
 
-> You will need to have **Promise** polyfilled first (if neccesary), before you load yetch. We recommend [taylorhakes/promise-polyfill](https://github.com/taylorhakes/promise-polyfill).
+> You will need to have **Promise** polyfilled first (if necessary), before you load yetch. We recommend [taylorhakes/promise-polyfill](https://github.com/taylorhakes/promise-polyfill).
 
 ```
 npm install yetch --save
